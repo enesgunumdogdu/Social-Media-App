@@ -1,6 +1,0 @@
-##Please check the links below ##
-
-https://firebase.google.com/docs/android/setup https://youtu.be/jbHfJpoOzkI
-
-https://firebase.google.com/docs/android/setup
-https://youtu.be/jbHfJpoOzkI
