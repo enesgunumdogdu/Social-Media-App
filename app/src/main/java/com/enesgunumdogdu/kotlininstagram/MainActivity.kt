@@ -1,5 +1,6 @@
 package com.enesgunumdogdu.kotlininstagram
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -23,5 +24,10 @@ class MainActivity : AppCompatActivity() {
 
     fun signUpClicked(view : View){
 
+    }
+
+    fun createAccount(view : View){
+        val intent = Intent(this,CreateAccountActivity::class.java)
+        startActivity(intent)
     }
 }
