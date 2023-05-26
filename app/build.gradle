@@ -35,6 +35,7 @@ android {
         viewBinding true
     }
 }
+def lottieVersion = "3.7.0"
 
 dependencies {
 
@@ -42,6 +43,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-storage-ktx'
+
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
