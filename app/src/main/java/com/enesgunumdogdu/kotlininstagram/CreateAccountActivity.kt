@@ -31,6 +31,7 @@ class CreateAccountActivity : AppCompatActivity() {
         println("CreateAccount Activity çağırıldı")
     }
 
+
     fun createClicked(view:View){
         val username = binding.usernameEditText.text.toString()
         val email = binding.emailEditText.text.toString()
@@ -84,5 +85,4 @@ class CreateAccountActivity : AppCompatActivity() {
         private fun isFieldsValid(username: String, email: String, password: String): Boolean {
             return username.isNotEmpty() && isEmailValid(email) && password.isNotEmpty()
         }
-
     }

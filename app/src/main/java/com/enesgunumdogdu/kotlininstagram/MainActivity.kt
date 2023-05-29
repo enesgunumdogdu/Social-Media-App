@@ -28,10 +28,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
-
     }
-
 
 
     fun signInClicked(view : View){
@@ -52,9 +49,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     fun signUpClicked(view : View){
 
     }
+
 
     fun createAccount(view : View){
         val intent = Intent(this,CreateAccountActivity::class.java)
