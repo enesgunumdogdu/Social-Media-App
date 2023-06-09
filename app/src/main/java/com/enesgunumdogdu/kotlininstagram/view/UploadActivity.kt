@@ -1,4 +1,4 @@
-package com.enesgunumdogdu.kotlininstagram
+package com.enesgunumdogdu.kotlininstagram.view
 
 import android.content.Intent
 import android.content.pm.PackageManager

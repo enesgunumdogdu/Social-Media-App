@@ -1,4 +1,4 @@
-package com.enesgunumdogdu.kotlininstagram
+package com.enesgunumdogdu.kotlininstagram.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,9 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.enesgunumdogdu.kotlininstagram.R
+import com.enesgunumdogdu.kotlininstagram.adapter.FeedRecyclerAdapter
 import com.enesgunumdogdu.kotlininstagram.databinding.ActivityFeedBinding
 import com.enesgunumdogdu.kotlininstagram.model.Post
 import com.google.firebase.auth.FirebaseAuth
@@ -19,6 +22,7 @@ class FeedActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
     private lateinit var postArrayList : ArrayList<Post>
+    private lateinit var feedAdapter : FeedRecyclerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +36,9 @@ class FeedActivity : AppCompatActivity() {
         postArrayList = ArrayList<Post>()
 
         getData()
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        feedAdapter = FeedRecyclerAdapter(postArrayList)
+        binding.recyclerView.adapter = feedAdapter
 
         binding.bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
@@ -77,6 +84,7 @@ class FeedActivity : AppCompatActivity() {
                           postArrayList.add(post)
 
                       }
+                      feedAdapter.notifyDataSetChanged()
                   }
                 }
             }
