@@ -67,6 +67,7 @@ class UploadActivity : AppCompatActivity() {
 
                     if (auth.currentUser != null) {
                         val postMap = hashMapOf<String, Any>()
+                        //postMap.put("username",username)
                         postMap.put("downloadUrl", downloadUrl)
                         postMap.put("userEmail", auth.currentUser!!.email.toString())
                         postMap.put("comment", binding.commentText.text.toString())
@@ -86,16 +87,8 @@ class UploadActivity : AppCompatActivity() {
 
 
     fun selectImage(view: View) {
-        if (ContextCompat.checkSelfPermission(
-                this,
-                android.Manifest.permission.READ_EXTERNAL_STORAGE
-            ) == PackageManager.PERMISSION_DENIED
-        ) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(
-                    this,
-                    android.Manifest.permission.READ_EXTERNAL_STORAGE
-                )
-            ) {
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)) {
                 Snackbar.make(view, "Permission needed for gallery", Snackbar.LENGTH_INDEFINITE)
                     .setAction("Give Permission") {
                         //request permission
@@ -106,8 +99,7 @@ class UploadActivity : AppCompatActivity() {
                 permissionLauncher.launch(android.Manifest.permission.READ_EXTERNAL_STORAGE)
             }
         } else {
-            val intentToGallery =
-                Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            val intentToGallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             activityResultLauncher.launch(intentToGallery)
         }
     }
@@ -126,17 +118,14 @@ class UploadActivity : AppCompatActivity() {
                     }
                 }
             }
-        permissionLauncher =
-            registerForActivityResult(ActivityResultContracts.RequestPermission()) { result ->
+        permissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { result ->
                 if (result) {
                     //permission granted
-                    val intentToGallery =
-                        Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                    val intentToGallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
                     activityResultLauncher.launch(intentToGallery)
                 } else {
                     //permission denied
-                    Toast.makeText(this@UploadActivity, "Permission needed!", Toast.LENGTH_LONG)
-                        .show()
+                    Toast.makeText(this@UploadActivity, "Permission needed!", Toast.LENGTH_LONG).show()
                 }
             }
     }

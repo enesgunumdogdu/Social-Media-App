@@ -51,6 +51,7 @@ class FeedActivity : AppCompatActivity() {
                 R.id.add_post -> {
                     val intent = Intent(this, UploadActivity::class.java)
                     startActivity(intent)
+                    finish()
                     true
                 }
                 R.id.signout -> {
@@ -81,9 +82,7 @@ class FeedActivity : AppCompatActivity() {
                           val userEmail = document.get("userEmail") as String
                           val downloadUrl = document.get("downloadUrl") as String
                           val post = Post(userEmail,comment,downloadUrl)
-
                           postArrayList.add(post)
-
                       }
                       feedAdapter.notifyDataSetChanged()
                   }
@@ -100,12 +99,10 @@ class FeedActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.home -> {
-                return true
-            }
             R.id.add_post -> {
                 val intent = Intent(this, UploadActivity::class.java)
                 startActivity(intent)
+                finish()
                 return true
             }
             R.id.signout -> {
