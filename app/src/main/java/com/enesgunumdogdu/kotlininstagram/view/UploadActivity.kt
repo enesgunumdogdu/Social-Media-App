@@ -83,6 +83,9 @@ class UploadActivity : AppCompatActivity() {
                 Toast.makeText(this, it.localizedMessage, Toast.LENGTH_LONG).show()
             }
         }
+        else{
+            Toast.makeText(this,"Please select a valid image",Toast.LENGTH_SHORT).show()
+        }
     }
 
 

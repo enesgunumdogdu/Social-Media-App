@@ -1,10 +1,12 @@
 package com.enesgunumdogdu.kotlininstagram.view
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.enesgunumdogdu.kotlininstagram.R
 import com.enesgunumdogdu.kotlininstagram.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -19,9 +21,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setDisplayUseLogoEnabled(true)
+        supportActionBar?.setLogo(R.drawable.socialfam)
+        window.decorView.setBackgroundColor(Color.TRANSPARENT)
+
 
         binding.button2.visibility = View.INVISIBLE // sign up invisible
-
         auth = Firebase.auth
 
         val currentUser = auth.currentUser

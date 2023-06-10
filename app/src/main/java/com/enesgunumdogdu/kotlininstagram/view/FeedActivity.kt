@@ -51,7 +51,6 @@ class FeedActivity : AppCompatActivity() {
                 R.id.add_post -> {
                     val intent = Intent(this, UploadActivity::class.java)
                     startActivity(intent)
-                    finish()
                     true
                 }
                 R.id.signout -> {
@@ -102,14 +101,12 @@ class FeedActivity : AppCompatActivity() {
             R.id.add_post -> {
                 val intent = Intent(this, UploadActivity::class.java)
                 startActivity(intent)
-                finish()
                 return true
             }
             R.id.signout -> {
                 auth.signOut()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
-                finish()
                 return true
             }
         }
