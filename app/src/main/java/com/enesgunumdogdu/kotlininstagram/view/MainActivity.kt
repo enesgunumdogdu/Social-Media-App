@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
 
-
         binding.button2.visibility = View.INVISIBLE // sign up invisible
         auth = Firebase.auth
 
@@ -59,7 +58,6 @@ class MainActivity : AppCompatActivity() {
 
     }
  */
-
     fun createAccount(view: View) {
         val intent = Intent(this, CreateAccountActivity::class.java)
         startActivity(intent)
