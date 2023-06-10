@@ -27,7 +27,6 @@ class CreateAccountActivity : AppCompatActivity() {
         binding.usernameEditText.addTextChangedListener(textWatcher)
         binding.emailEditText.addTextChangedListener(textWatcher)
         binding.passwordEditText.addTextChangedListener(textWatcher)
-        println("CreateAccount Activity çağırıldı")
     }
 
 
@@ -52,17 +51,12 @@ class CreateAccountActivity : AppCompatActivity() {
         } else {
             // all of them valid
             auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
-                Toast.makeText(
-                    this@CreateAccountActivity,
-                    "Your account successfully created!",
-                    Toast.LENGTH_LONG
-                ).show()
+                Toast.makeText(this@CreateAccountActivity, "Your account successfully created!", Toast.LENGTH_LONG).show()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish()
             }.addOnFailureListener {
-                Toast.makeText(this@CreateAccountActivity, it.localizedMessage, Toast.LENGTH_LONG)
-                    .show()
+                Toast.makeText(this@CreateAccountActivity, it.localizedMessage, Toast.LENGTH_LONG).show()
             }
 
         }

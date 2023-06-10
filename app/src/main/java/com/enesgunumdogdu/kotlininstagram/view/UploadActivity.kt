@@ -5,6 +5,8 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
@@ -12,6 +14,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.enesgunumdogdu.kotlininstagram.R
 import com.enesgunumdogdu.kotlininstagram.databinding.ActivityUploadBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.Timestamp
@@ -49,7 +52,6 @@ class UploadActivity : AppCompatActivity() {
     fun share(view: View) {
         val uuid = UUID.randomUUID()
         val imageName = "$uuid.jpg"
-
         val reference = storage.reference
         val imageReference = reference.child("images").child(imageName)
 
@@ -66,25 +68,16 @@ class UploadActivity : AppCompatActivity() {
                     if (auth.currentUser != null) {
                         val postMap = hashMapOf<String, Any>()
                         postMap.put("downloadUrl", downloadUrl)
-                        postMap.put("userEmail", auth.currentUser!!.email!!)
+                        postMap.put("userEmail", auth.currentUser!!.email.toString())
                         postMap.put("comment", binding.commentText.text.toString())
                         postMap.put("date", Timestamp.now())
-
                         firestore.collection("Posts").add(postMap).addOnSuccessListener {
-
                             finish()
-
                         }.addOnFailureListener {
-                            Toast.makeText(
-                                this@UploadActivity,
-                                it.localizedMessage,
-                                Toast.LENGTH_LONG
-                            ).show()
+                            Toast.makeText(this@UploadActivity, it.localizedMessage, Toast.LENGTH_LONG).show()
                         }
                     }
-
                 }
-
             }.addOnFailureListener {
                 Toast.makeText(this, it.localizedMessage, Toast.LENGTH_LONG).show()
             }

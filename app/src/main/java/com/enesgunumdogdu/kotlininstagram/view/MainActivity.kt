@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.button2.visibility = View.INVISIBLE // sign up invisible
 
-
         auth = Firebase.auth
 
         val currentUser = auth.currentUser
@@ -42,8 +41,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Invalid email or password!", Toast.LENGTH_LONG).show()
         } else {
             auth.signInWithEmailAndPassword(email, password).addOnSuccessListener {
-                Toast.makeText(this@MainActivity, "Successfully logged in!", Toast.LENGTH_LONG)
-                    .show()
+                Toast.makeText(this@MainActivity, "Successfully logged in!", Toast.LENGTH_LONG).show()
                 val intent = Intent(this@MainActivity, FeedActivity::class.java)
                 startActivity(intent)
                 finish()
@@ -53,11 +51,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
+/*
     fun signUpClicked(view: View) {
 
     }
-
+ */
 
     fun createAccount(view: View) {
         val intent = Intent(this, CreateAccountActivity::class.java)
