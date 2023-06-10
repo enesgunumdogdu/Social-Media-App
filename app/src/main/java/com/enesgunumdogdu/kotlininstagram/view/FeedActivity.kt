@@ -42,10 +42,10 @@ class FeedActivity : AppCompatActivity() {
         feedAdapter = FeedRecyclerAdapter(postArrayList)
         binding.recyclerView.adapter = feedAdapter
 
+
         binding.bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.home -> {
-                    // Home sayfasına geçiş yapma işlemleri
                     true
                 }
                 R.id.add_post -> {
@@ -95,7 +95,6 @@ class FeedActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val menuInflater = menuInflater
         menuInflater.inflate(R.menu.menu, menu)
-
         return true
     }
 
@@ -117,7 +116,6 @@ class FeedActivity : AppCompatActivity() {
                 return true
             }
         }
-
         return super.onOptionsItemSelected(item)
     }
 }
