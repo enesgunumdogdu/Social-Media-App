@@ -73,7 +73,6 @@ class UploadActivity : AppCompatActivity() {
                 else -> false
             }
         }
-
     }
 
 
@@ -181,7 +180,6 @@ class UploadActivity : AppCompatActivity() {
                 finish()
             }
             R.id.profile ->{
-                //profil intent
                 val intent = Intent(this,ProfileActivity::class.java)
                 startActivity(intent)
             }
