@@ -21,10 +21,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
-        supportActionBar?.setDisplayUseLogoEnabled(true)
-        supportActionBar?.setLogo(R.drawable.socialfam)
-        window.decorView.setBackgroundColor(Color.TRANSPARENT)
+
 
 
         binding.button2.visibility = View.INVISIBLE // sign up invisible
