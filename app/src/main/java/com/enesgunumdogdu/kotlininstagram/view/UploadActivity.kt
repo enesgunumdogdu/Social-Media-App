@@ -47,6 +47,33 @@ class UploadActivity : AppCompatActivity() {
         firestore = Firebase.firestore
         storage = Firebase.storage
 
+        binding.bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.home -> {
+                    true
+                }
+                R.id.add_post -> {
+                    val intent = Intent(this, UploadActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.signout -> {
+                    auth.signOut()
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                R.id.profile ->{
+                    //profil intent
+                    val intent = Intent(this,ProfileActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
+
     }
 
 
@@ -132,5 +159,33 @@ class UploadActivity : AppCompatActivity() {
                     Toast.makeText(this@UploadActivity, "Permission needed!", Toast.LENGTH_LONG).show()
                 }
             }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val menuInflater = menuInflater
+        menuInflater.inflate(R.menu.menu,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.add_post -> {
+                val intent = Intent(this, UploadActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.signout -> {
+                auth.signOut()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+            R.id.profile ->{
+                //profil intent
+                val intent = Intent(this,ProfileActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

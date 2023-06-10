@@ -62,7 +62,6 @@ class FeedActivity : AppCompatActivity() {
                     //profil intent
                     val intent = Intent(this,ProfileActivity::class.java)
                     startActivity(intent)
-                    finish()
                     true
                 }
                 else -> false
@@ -114,6 +113,7 @@ class FeedActivity : AppCompatActivity() {
                 auth.signOut()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
+                finish()
                 return true
             }
             R.id.profile ->{
