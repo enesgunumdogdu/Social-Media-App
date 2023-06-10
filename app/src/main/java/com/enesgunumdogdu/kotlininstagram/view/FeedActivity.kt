@@ -33,9 +33,7 @@ class FeedActivity : AppCompatActivity() {
 
         auth = Firebase.auth
         db = Firebase.firestore
-
         postArrayList = ArrayList<Post>()
-
 
         getData()
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
@@ -60,9 +58,18 @@ class FeedActivity : AppCompatActivity() {
                     finish()
                     true
                 }
+                R.id.profile ->{
+                    //profil intent
+                    val intent = Intent(this,ProfileActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
                 else -> false
             }
         }
+
+
     }
 
     private fun getData(){
@@ -106,6 +113,12 @@ class FeedActivity : AppCompatActivity() {
             R.id.signout -> {
                 auth.signOut()
                 val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.profile ->{
+                //profil intent
+                val intent = Intent(this,ProfileActivity::class.java)
                 startActivity(intent)
                 return true
             }
