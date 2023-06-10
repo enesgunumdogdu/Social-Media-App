@@ -36,6 +36,7 @@ class FeedActivity : AppCompatActivity() {
 
         postArrayList = ArrayList<Post>()
 
+
         getData()
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         feedAdapter = FeedRecyclerAdapter(postArrayList)
@@ -94,6 +95,7 @@ class FeedActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val menuInflater = menuInflater
         menuInflater.inflate(R.menu.menu, menu)
+
         return true
     }
 
