@@ -41,8 +41,8 @@ class UploadActivity : AppCompatActivity() {
         binding = ActivityUploadBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        registerLauncher()
 
+        registerLauncher()
         auth = Firebase.auth
         firestore = Firebase.firestore
         storage = Firebase.storage
