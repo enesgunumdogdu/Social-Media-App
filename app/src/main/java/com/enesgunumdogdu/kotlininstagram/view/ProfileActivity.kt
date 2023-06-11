@@ -28,6 +28,8 @@ class ProfileActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.home -> {
+                    val intent = Intent(this,FeedActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 R.id.add_post -> {
@@ -43,9 +45,6 @@ class ProfileActivity : AppCompatActivity() {
                     true
                 }
                 R.id.profile ->{
-                    //profil intent
-                    val intent = Intent(this,ProfileActivity::class.java)
-                    startActivity(intent)
                     true
                 }
                 else -> false
@@ -79,9 +78,5 @@ class ProfileActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    private fun changeImage(view:View){
-
     }
 }

@@ -50,11 +50,11 @@ class UploadActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.home -> {
+                    val intent = Intent(this,FeedActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 R.id.add_post -> {
-                    val intent = Intent(this, UploadActivity::class.java)
-                    startActivity(intent)
                     true
                 }
                 R.id.signout -> {
@@ -65,7 +65,6 @@ class UploadActivity : AppCompatActivity() {
                     true
                 }
                 R.id.profile ->{
-                    //profil intent
                     val intent = Intent(this,ProfileActivity::class.java)
                     startActivity(intent)
                     true
@@ -169,8 +168,8 @@ class UploadActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.add_post -> {
-                val intent = Intent(this, UploadActivity::class.java)
+            R.id.home -> {
+                val intent = Intent(this, FeedActivity::class.java)
                 startActivity(intent)
             }
             R.id.signout -> {
