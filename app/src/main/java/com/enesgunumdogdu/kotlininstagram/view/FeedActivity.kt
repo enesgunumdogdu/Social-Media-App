@@ -59,7 +59,6 @@ class FeedActivity : AppCompatActivity() {
                     true
                 }
                 R.id.profile ->{
-                    //profil intent
                     val intent = Intent(this,ProfileActivity::class.java)
                     startActivity(intent)
                     true

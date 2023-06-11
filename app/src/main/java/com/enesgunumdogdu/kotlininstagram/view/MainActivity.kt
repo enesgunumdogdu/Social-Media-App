@@ -22,8 +22,7 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-
-        binding.button2.visibility = View.INVISIBLE // sign up invisible
+        //binding.button2.visibility = View.INVISIBLE // sign up invisible
         auth = Firebase.auth
 
         val currentUser = auth.currentUser
