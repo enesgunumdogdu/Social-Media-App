@@ -36,12 +36,12 @@ class CreateAccountActivity : AppCompatActivity() {
         val password = binding.passwordEditText.text.toString()
 
         if (username.isEmpty()) {
-            binding.usernameEditText.error = "Username cannot be empty!"
+            binding.usernameEditText.error = "Username can't be empty!"
             return
         }
 
         if (password.isEmpty()) {
-            binding.passwordEditText.error = "Password cannot be empty!"
+            binding.passwordEditText.error = "Password can't be empty!"
             return
         }
 
